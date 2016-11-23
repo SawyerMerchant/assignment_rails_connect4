@@ -16,6 +16,7 @@ class Board < ApplicationRecord
     false
   end
 
+
   def winner?(coords)
     !!win(coords)
   end
