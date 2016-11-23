@@ -114,4 +114,8 @@ class Board < ApplicationRecord
       check_diagonal(coords)
     end
 
+    def game_end?(coords)
+      @board.winner?(coords) || @board.full?
+    end
+
 end

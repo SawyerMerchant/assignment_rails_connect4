@@ -1,15 +1,15 @@
 class BoardController < ApplicationController
 
   def new
-    #welcome
-    #do you want to play = redirect to edit
+    @board = Board.new
+    session[:board] = @board
   end
 
-  def edit
-    #create new board
-    @board = Board.new
+  def turn
+    # retrieve existing board data
+    @board = session[:board]
     #get move from params
-    
+    @board.add_piece(params[:column], params[:piece])
     #save board to session
     session[:board] = @board
     #redirect to edit
